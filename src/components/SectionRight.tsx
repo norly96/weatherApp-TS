@@ -1,10 +1,12 @@
+import { useWeatherContext } from "../context/WeatherContext";
 import Card from "./ui/Card";
 
 const SectionRight = () => {
+  const { data } = useWeatherContext();
   return (
-    <div className="px-20 h-full">
+    <div className="lg:px-20 h-full">
       <div className="bg-dark-beige rounded-lg py-20 h-full w-auto">
-        <Card />
+        {data === undefined ? <h1>Esta vacio</h1> : <Card />}
       </div>
     </div>
   );

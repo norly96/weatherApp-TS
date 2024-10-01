@@ -29,10 +29,10 @@ const SearchInput = () => {
     }
   };
   return (
-    <div className="flex items-center bg-green-card rounded-full shadow-md overflow-hidden ">
+    <div className="flex justify-between xl:items-center w-full  bg-green-card rounded-full shadow-md overflow-hidden ">
       <input
         type="text"
-        className="flex-grow px-10 bg-inherit py-4 text-xl text-light-white placeholder:text-light-white focus:outline-none"
+        className="px-10 bg-inherit w-full py-4 text-md lg:text-xl text-light-white placeholder:text-light-white focus:outline-none"
         placeholder="Search..."
         value={nameCard}
         onChange={(e) => setnameCard(e.target.value)}

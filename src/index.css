@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Afacad-Flux';
+  font-weight: 200,300,40,500,600,700,800;
+  font-display: swap;
+  src: url('/afacad.ttf') format('truetype');
+}
+
 :root {
   --yellow-orange: #EFB12E;
   --dark-green: #20232A;
