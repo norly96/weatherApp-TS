@@ -1,5 +1,12 @@
-import { createContext, ReactNode, useContext, useState } from "react";
-import { getLocationRequest } from "../api/axios";
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
+import { getLocationRequest, getWeatherRequest } from "../api/axios";
+import { WeatherData } from "../interface";
 
 interface WeatherContextProps {
   getLocation: (name: string) => void;
@@ -13,6 +20,7 @@ interface WeatherContextProps {
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
   setErrorMessage: React.Dispatch<React.SetStateAction<string>>;
   closeModal: () => void;
+  data: object | undefined;
 }
 
 export const WeatherContext = createContext<WeatherContextProps | undefined>(
@@ -34,6 +42,7 @@ export const WeatherProvider = ({ children }: { children: ReactNode }) => {
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [country, setCountry] = useState<string>("");
   const [name, setName] = useState<string>("");
+  const [data, setData] = useState<WeatherData | undefined>(undefined);
 
   // Function for find location
   const getLocation = async (name: string) => {
@@ -54,6 +63,23 @@ export const WeatherProvider = ({ children }: { children: ReactNode }) => {
     setIsModalOpen(false);
   };
 
+  // Function for get data by latitude and longitude
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        if (latitude !== undefined && longitude !== undefined) {
+          const response = await getWeatherRequest(latitude, longitude);
+          console.log(response.data);
+          setData(response.data as WeatherData);
+        }
+        return;
+      } catch (error) {
+        console.error("Error fetching data: ", error);
+      }
+    };
+    getData();
+  }, [latitude]);
+
   return (
     <WeatherContext.Provider
       value={{
@@ -68,6 +94,7 @@ export const WeatherProvider = ({ children }: { children: ReactNode }) => {
         setIsModalOpen,
         setErrorMessage,
         closeModal,
+        data,
       }}
     >
       {children}
