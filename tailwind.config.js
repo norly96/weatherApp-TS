@@ -15,6 +15,9 @@ export default {
         "light-right-background": "var(--light-right-background)",
         "dark-right-background": "var(--dark-right-background)",
 			  },
+        fontFamily: {
+          afacad: ['Afacad-Flux','sans-serif'],
+          },
     },
     },
   plugins: [],
