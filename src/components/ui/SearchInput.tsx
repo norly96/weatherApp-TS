@@ -1,10 +1,26 @@
 import { useState } from "react";
+import { useWeatherContext } from "../../context/WeatherContext";
+import Modal from "./Modal";
 
 const SearchInput = () => {
-  const [name, setName] = useState<string>("");
+  const [nameCard, setnameCard] = useState<string>("");
+  const {
+    getLocation,
+    setName,
+    name,
+    setErrorMessage,
+    setIsModalOpen,
+    isModalOpen,
+  } = useWeatherContext();
 
   const handleSearch = () => {
-    console.log("Searching for:", name);
+    if (nameCard.trim() === "") {
+      setErrorMessage("The field is empty");
+      setIsModalOpen(true);
+    } else {
+      getLocation(nameCard);
+      setName(name);
+    }
   };
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -18,13 +34,15 @@ const SearchInput = () => {
         type="text"
         className="flex-grow px-10 bg-inherit py-4 text-xl text-light-white placeholder:text-light-white focus:outline-none"
         placeholder="Search..."
-        value={name}
-        onChange={(e) => setName(e.target.value)}
+        value={nameCard}
+        onChange={(e) => setnameCard(e.target.value)}
         onKeyDown={handleKeyDown}
       />
       <button onClick={handleSearch} className="p-4">
         <img src="/images/search.svg" alt="Search" className="h-8 w-8" />
       </button>
+      {/* Error Modal */}
+      {isModalOpen && <Modal />}
     </div>
   );
 };
