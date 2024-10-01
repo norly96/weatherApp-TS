@@ -20,7 +20,7 @@ interface WeatherContextProps {
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
   setErrorMessage: React.Dispatch<React.SetStateAction<string>>;
   closeModal: () => void;
-  data: object | undefined;
+  data: WeatherData | undefined;
 }
 
 export const WeatherContext = createContext<WeatherContextProps | undefined>(
