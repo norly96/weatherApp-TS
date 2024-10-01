@@ -3,15 +3,6 @@ import { useWeatherContext } from "../../context/WeatherContext";
 const Card = () => {
   const { country, name, data, getWeatherIcon } = useWeatherContext();
 
-  const formatDate = (date: string) => {
-    const time = new Date(date);
-    return time.toLocaleDateString("en-EN", {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    });
-  };
-
   return (
     <div className="relative h-full w-full flex items-center justify-center">
       {/* Rotate Card */}
@@ -34,7 +25,7 @@ const Card = () => {
               </h1>
               <img
                 src={getWeatherIcon(data.current.weather_code)}
-                alt=""
+                alt="icon the current weather"
                 className="z-20 w-24 sm:w-28 lg:w-36 h-auto"
               />
             </>
@@ -46,14 +37,11 @@ const Card = () => {
               <>
                 <img
                   src={getWeatherIcon(data.daily.weather_code[1])}
-                  alt=""
+                  alt="icon the weather"
                   className="w-16 sm:w-20 lg:w-full"
                 />
 
-                <p className="text-gray-400">
-                  {" "}
-                  {formatDate(data.daily.time[1])}
-                </p>
+                <p className="text-gray-400"> {data.daily.time[1]}</p>
                 <p>{data.daily.temperature_2m_max[1]}&deg;</p>
               </>
             )}
@@ -63,14 +51,11 @@ const Card = () => {
               <>
                 <img
                   src={getWeatherIcon(data.daily.weather_code[2])}
-                  alt=""
+                  alt="icon the weather"
                   className="w-16 sm:w-20 lg:w-full"
                 />
 
-                <p className="text-gray-400">
-                  {" "}
-                  {formatDate(data.daily.time[2])}
-                </p>
+                <p className="text-gray-400"> {data.daily.time[2]}</p>
                 <p>{data.daily.temperature_2m_max[2]}&deg;</p>
               </>
             )}

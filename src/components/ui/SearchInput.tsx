@@ -39,7 +39,7 @@ const SearchInput = () => {
         onKeyDown={handleKeyDown}
       />
       <button onClick={handleSearch} className="p-4">
-        <img src="/images/search.svg" alt="Search" className="h-8 w-8" />
+        <img src="/images/search.svg" alt="Icon Search" className="h-8 w-8" />
       </button>
       {/* Error Modal */}
       {isModalOpen && <Modal />}

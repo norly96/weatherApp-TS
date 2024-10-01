@@ -7,7 +7,7 @@ const SectionLeft = () => {
       <div className="flex flex-wrap justify-center sm:justify-between items-center">
         {/* Logo */}
         <div className="hidden sm:flex items-center ">
-          <img src="/images/logo.svg" className="w-16" alt="" />
+          <img src="/images/logo.svg" className="w-16" alt="logo app" />
           <h1 className="text-black dark:text-light-white text-4xl font-bold">
             WeatherApp
           </h1>

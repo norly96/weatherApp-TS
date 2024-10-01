@@ -10,10 +10,10 @@ export const ToggleDarkMode = () => {
   return (
     <button onClick={darkModeHandler} className="mt-2">
       {
-        dark && <img src="/images/sun.svg" className="w-10" alt="" /> // render sunny when dark is true
+        dark && <img src="/images/sun.svg" className="w-10" alt="icon sun" /> // render sunny when dark is true
       }
       {
-        !dark && <img src="/images/moon.svg" className="w-10" alt="" /> // render moon when dark is false
+        !dark && <img src="/images/moon.svg" className="w-10" alt="icon moon" /> // render moon when dark is false
       }
     </button>
   );

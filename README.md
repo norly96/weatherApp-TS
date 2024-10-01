@@ -1,50 +1,63 @@
-# React + TypeScript + Vite
+# WeatherApp
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Easily track current weather conditions and forecasts for the upcoming days by searching for any city around the world. Our app, powered by the Open Meteo API, delivers accurate and up-to-date information, including temperature and weather codes.
 
-Currently, two official plugins are available:
+### Screenshot
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![](./public/1.png)
 
-## Expanding the ESLint configuration
+![](./public/2.png)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Links
 
-- Configure the top-level `parserOptions` property like this:
+Deploy by Vercel
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- Site URL: [WeatherApp]()
+
+## Installation
+
+To run this project on your local machine, follow these steps:
+
+1. Clone the repository:
+
+```bash
+https://github.com/norly96/weatherApp-TS.git
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Navigate to the project directory:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+cd weatherApp-TS
 ```
+
+3. Install the backend dependencies:
+
+```bash
+npm install
+```
+
+4. Set your environment variables. Create an .env file in the project root directory and add the API URL :
+
+```bash
+VITE_GEO_API_URL=https://geocoding-api.open-meteo.com/
+VITE_BASE_API_URL=https://api.open-meteo.com/
+```
+
+5. Start the server
+
+```bash
+npm run dev
+```
+
+## Used technologies
+
+1. HTML, CSS, TypeScript, ReactJS, TailwindCSS
+
+2. API: [Open Meteo API](https://open-meteo.com/)
+
+## Contact
+
+Name: Norluis Galvez Sanchez
+Website: [Norly96](https://norly96.com)
+GitHub: [Norly96](https://github.com/norly96)
+Linkedin: [Norly96](https://www.linkedin.com/in/norly96)
