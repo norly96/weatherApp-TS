@@ -1,7 +1,7 @@
 import { useWeatherContext } from "../../context/WeatherContext";
 
 const Card = () => {
-  const { country, name, data } = useWeatherContext();
+  const { country, name, data, getWeatherIcon } = useWeatherContext();
 
   const formatDate = (date: string) => {
     const time = new Date(date);
@@ -33,7 +33,7 @@ const Card = () => {
                 {data.current.temperature_2m}&deg;
               </h1>
               <img
-                src="images/logo.svg"
+                src={getWeatherIcon(data.current.weather_code)}
                 alt=""
                 className="z-20 w-24 sm:w-28 lg:w-36 h-auto"
               />
@@ -42,13 +42,14 @@ const Card = () => {
         </div>
         <div className="flex flex-wrap justify-center gap-8">
           <div className="flex flex-col text-sm sm:text-lg items-center font-bold">
-            <img
-              src="images/logo.svg"
-              alt=""
-              className="w-16 sm:w-20 lg:w-full"
-            />
             {data !== undefined && (
               <>
+                <img
+                  src={getWeatherIcon(data.daily.weather_code[1])}
+                  alt=""
+                  className="w-16 sm:w-20 lg:w-full"
+                />
+
                 <p className="text-gray-400">
                   {" "}
                   {formatDate(data.daily.time[1])}
@@ -58,13 +59,14 @@ const Card = () => {
             )}
           </div>
           <div className="flex flex-col text-sm sm:text-lg items-center font-bold">
-            <img
-              src="images/logo.svg"
-              alt=""
-              className="w-16 sm:w-20 lg:w-full"
-            />
             {data !== undefined && (
               <>
+                <img
+                  src={getWeatherIcon(data.daily.weather_code[2])}
+                  alt=""
+                  className="w-16 sm:w-20 lg:w-full"
+                />
+
                 <p className="text-gray-400">
                   {" "}
                   {formatDate(data.daily.time[2])}

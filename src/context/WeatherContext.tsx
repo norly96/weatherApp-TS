@@ -21,6 +21,7 @@ interface WeatherContextProps {
   setErrorMessage: React.Dispatch<React.SetStateAction<string>>;
   closeModal: () => void;
   data: WeatherData | undefined;
+  getWeatherIcon: (weatherCode: number) => string;
 }
 
 export const WeatherContext = createContext<WeatherContextProps | undefined>(
@@ -140,6 +141,7 @@ export const WeatherProvider = ({ children }: { children: ReactNode }) => {
         setErrorMessage,
         closeModal,
         data,
+        getWeatherIcon,
       }}
     >
       {children}
