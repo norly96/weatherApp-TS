@@ -12,7 +12,7 @@ Easily track current weather conditions and forecasts for the upcoming days by s
 
 Deploy by Vercel
 
-- Site URL: [WeatherApp]()
+- Site URL: [WeatherApp](https://weather-app-ts-eight.vercel.app/)
 
 ## Installation
 
@@ -59,5 +59,7 @@ npm run dev
 
 Name: Norluis Galvez Sanchez
 Website: [Norly96](https://norly96.com)
+
 GitHub: [Norly96](https://github.com/norly96)
+
 Linkedin: [Norly96](https://www.linkedin.com/in/norly96)
