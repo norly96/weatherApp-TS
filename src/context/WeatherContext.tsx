@@ -80,6 +80,51 @@ export const WeatherProvider = ({ children }: { children: ReactNode }) => {
     getData();
   }, [latitude]);
 
+  // Function for images of weather code
+  const getWeatherIcon = (weatherCode: number): string => {
+    switch (weatherCode) {
+      case 0:
+      case 1:
+        return "/images/wi_clear-day.svg";
+
+      case 2:
+        return "/images/wi_cloudy.svg";
+      case 3:
+        return "/images/wi_overcast.svg";
+      case 45:
+      case 48:
+        return "/images/wi_fog.svg";
+      case 51:
+      case 53:
+      case 55:
+      case 56:
+      case 57:
+        return "/images/wi_drizzle.svg";
+      case 61:
+      case 63:
+      case 65:
+      case 66:
+      case 67:
+      case 80:
+      case 81:
+        return "/images/wi_rain.svg";
+      case 71:
+      case 73:
+      case 75:
+      case 77:
+        return "/images/wi_snow.svg";
+      case 85:
+      case 86:
+        return "/images/wi_sleet.svg";
+      case 95:
+      case 96:
+      case 99:
+        return "/images/wi_thunderstorms.svg";
+      default:
+        return "/images/wi_not-available.svg"; // Default for unknown weather codes
+    }
+  };
+
   return (
     <WeatherContext.Provider
       value={{
